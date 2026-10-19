@@ -48,8 +48,8 @@ export class AutoLabelService {
     const generation = ++this.generation;
     this.operation++;
     this.pending.clear();
-    if (this.retry) clearTimeout(this.retry);
-    if (this.timer) clearTimeout(this.timer);
+    if (this.retry) { clearTimeout(this.retry); this.retry = undefined; }
+    if (this.timer) { clearTimeout(this.timer); this.timer = undefined; }
     this.control = this.control.catch(() => {}).then(async () => {
       const old = this.host;
       this.host = undefined;
@@ -272,7 +272,7 @@ export class AutoLabelService {
     this.operation++;
     this.pending.clear();
     this.clearing = false;
-    if (this.timer) clearTimeout(this.timer);
+    if (this.timer) { clearTimeout(this.timer); this.timer = undefined; }
     if (this.retry) { clearTimeout(this.retry); this.retry = undefined; }
     const host = this.host;
     this.host = undefined;
@@ -288,8 +288,8 @@ export class AutoLabelService {
     this.generation++;
     this.operation++;
     this.pending.clear();
-    if (this.timer) clearTimeout(this.timer);
-    if (this.retry) clearTimeout(this.retry);
+    if (this.timer) { clearTimeout(this.timer); this.timer = undefined; }
+    if (this.retry) { clearTimeout(this.retry); this.retry = undefined; }
     await this.host?.close();
     await this.control;
     await this.pumping;

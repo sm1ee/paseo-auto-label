@@ -191,4 +191,29 @@ describe("automatic label synchronization", () => {
     expect(service.status().state).toBe("error");
     expect(host.assign).not.toHaveBeenCalled();
   });
+
+  it("restarts the automatic queue after changing hosts while a timer is pending", async () => {
+    vi.useFakeTimers();
+    try {
+      const { host, service } = setup();
+      await service.configure(preferences);
+      await service.configure({ ...preferences, daemonHome: "another-home" });
+      await vi.advanceTimersByTimeAsync(200);
+      expect(host.assign).toHaveBeenCalledTimes(1);
+      expect(service.status().pending).toBe(0);
+    } finally { vi.useRealTimers(); }
+  });
+
+  it("resumes automatically after invalid settings are repaired", async () => {
+    vi.useFakeTimers();
+    try {
+      const { host, service } = setup();
+      await service.configure(preferences);
+      await service.invalidSettings();
+      await service.configure(preferences);
+      await vi.advanceTimersByTimeAsync(200);
+      expect(host.assign).toHaveBeenCalledTimes(1);
+      expect(service.status().state).toBe("watching");
+    } finally { vi.useRealTimers(); }
+  });
 });

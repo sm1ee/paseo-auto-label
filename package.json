@@ -1,13 +1,18 @@
 {
   "name": "paseo-auto-label",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Show each Paseo workspace's provider, model, and effort as automatic labels.",
   "license": "MIT",
   "author": "sm1ee",
-  "repository": { "type": "git", "url": "git+https://github.com/sm1ee/paseo-auto-label.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sm1ee/paseo-auto-label.git"
+  },
   "homepage": "https://github.com/sm1ee/paseo-auto-label#readme",
-  "bugs": { "url": "https://github.com/sm1ee/paseo-auto-label/issues" },
+  "bugs": {
+    "url": "https://github.com/sm1ee/paseo-auto-label/issues"
+  },
   "files": [
     "paseo-plugin.json",
     "OVERVIEW.md",
