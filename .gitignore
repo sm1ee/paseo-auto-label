@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+*.tgz
+.DS_Store
+.env
+.env.*
+*.log
+*.sqlite*
+auth.json
+local-credential
+ownership.json

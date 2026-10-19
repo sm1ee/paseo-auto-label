@@ -1,0 +1,10 @@
+{
+  "id": "paseo-auto-label",
+  "name": "Auto labels",
+  "description": "Show each workspace's provider, model, and effort as automatic labels.",
+  "media": [],
+  "build": [["npm", "ci", "--ignore-scripts", "--omit=dev"]],
+  "requirements": {
+    "paseo": ">=0.11.4"
+  }
+}
