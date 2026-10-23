@@ -1,10 +1,10 @@
 # Paseo auto labels
 
-See a workspace's provider, model, and effort without typing labels by hand.
+See each workspace's provider, model, and effort in Paseo's sidebar. Auto labels adds and updates the labels for you.
 
-```text
-codex · gpt-6.1-sol · max
-```
+![Actual Paseo sidebar labels showing the provider, model, and effort for OMP, Claude, and Codex](docs/assets/auto-label-sidebar.png)
+
+Real sidebar excerpts, with workspace titles redacted. Each label follows `provider · model · effort`.
 
 The plugin syncs existing workspaces when it starts and watches session settings for changes. Changing a model or effort replaces the label it added. Workspace and session titles stay available to tools such as session-triage.
 
